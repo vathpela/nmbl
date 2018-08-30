@@ -1,0 +1,14 @@
+*~
+*.a
+*.bin
+*.E
+*.efi
+*.efi.debug
+*.efi.signed
+*.img
+*.o
+*.so
+*.tar
+*.tar.*
+.*.sw?
+builddir
