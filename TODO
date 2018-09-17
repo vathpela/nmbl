@@ -1,0 +1,28 @@
+The basic implementation plan, as of 2018-09-16
+
+- make shim have a LOADER_PROTOCOL
+- alter systemd-boot
+  - use shim's LOADER_PROTOCOL
+    - make it so not using it is something you can build but it's just
+      hard to do.
+  - make sure it has a command line mode we can use
+  - give it grubenv-style state storage
+  - teach it about boot-once, boot-loop/failure detection, forced
+    cmdline
+  - make sure it doesn't fuck up flicker-free
+  - audit the hell out of it :(
+- make intiramfs with dracut --uefi
+  - make sure "dracut --uefi" works right with signatures
+- port u-boot to ppc64le and s390x (does it work on i386/BIOS?)
+- write a first-stage loader for u-boot for BIOS,ppc64le,s390x
+  - needs to have the ability to read and write from disks, where
+    possible
+- make a tool to install u-boot on non-efi
+  i386/BIOS,armv7,ppc64le,s390x(?) 1st and 2nd stage and
+  - "audit" all our UEFI tools for big endian in case we need it for s390x and
+    ppc64eb
+- port initrd bits for boot-once, boot-loop/failure detection, forced
+  cmdline, etc.
+- profit
+
+# vim:filetype=mail:tw=74
