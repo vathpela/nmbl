@@ -13,14 +13,15 @@ The basic implementation plan, as of 2018-09-16
   - audit the hell out of it :(
 - make intiramfs with dracut --uefi
   - make sure "dracut --uefi" works right with signatures
-- port u-boot to ppc64le and s390x (does it work on i386/BIOS?)
+
+- figure out what we need for ppc64le and Z
+
 - write a first-stage loader for u-boot for BIOS,ppc64le,s390x
   - needs to have the ability to read and write from disks, where
     possible
 - make a tool to install u-boot on non-efi
-  i386/BIOS,armv7,ppc64le,s390x(?) 1st and 2nd stage and
-  - "audit" all our UEFI tools for big endian in case we need it for s390x and
-    ppc64eb
+  armv7,ppc64le,s390x(?) 1st and 2nd stage and
+  - "audit" all our UEFI tools for big endian in case we need it for s390x
 - port initrd bits for boot-once, boot-loop/failure detection, forced
   cmdline, etc.
 - profit
